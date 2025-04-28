@@ -13,6 +13,50 @@
   - 数组操作
   - 基本输入输出
 
+## 安装
+
+1. 确保已安装 Python 3.6 或更高版本
+
+2. 克隆仓库：
+```bash
+git clone https://github.com/yourusername/ya-lang.git
+cd ya-lang
+```
+
+3. 安装依赖：
+```bash
+pip install ply
+```
+
+4. 设置命令行工具：
+
+   **Unix/Linux/macOS:**
+   ```bash
+   chmod +x ya
+   sudo ln -s "$(pwd)/ya" /usr/local/bin/ya
+   ```
+
+   或者将以下行添加到您的 shell 配置文件（~/.bashrc, ~/.zshrc 等）：
+   ```bash
+   export PATH="$PATH:/path/to/ya/directory"
+   ```
+
+   **Windows:**
+   - 将雅语言目录添加到系统环境变量 PATH 中
+   - 或者直接使用 `ya.bat`
+
+## 使用
+
+运行雅语言程序：
+```bash
+ya 源文件.ya
+```
+
+例如：
+```bash
+ya examples/hello_world.ya
+```
+
 ## 语法示例
 
 ### 1. 基本输出
@@ -57,19 +101,6 @@
     数组 数列 = [1, 2, 3, 4, 5]
     显示(数列)
 结束
-```
-
-## 安装和使用
-
-1. 确保已安装 Python 3.6 或更高版本
-2. 安装依赖：
-```bash
-pip install ply
-```
-
-3. 运行示例：
-```bash
-python src/main.py examples/hello_world.ya
 ```
 
 ## 语言规范

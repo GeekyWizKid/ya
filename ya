@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# 获取真实脚本路径（处理符号链接）
+SCRIPT_PATH=$(readlink -f "$0")
+SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
+
+# 检查是否提供了源文件参数
+if [ $# -eq 0 ]; then
+    echo "雅语言解释器"
+    echo "用法: ya <源文件>"
+    echo "示例: ya examples/hello_world.ya"
+    exit 1
+fi
+
+# 检查 Python 环境
+if command -v python3 &> /dev/null; then
+    PYTHON_CMD="python3"
+elif command -v python &> /dev/null; then
+    PYTHON_CMD="python"
+else
+    echo "错误: 未找到 Python 解释器"
+    exit 1
+fi
+
+# 执行雅语言解释器
+"$PYTHON_CMD" "$SCRIPT_DIR/src/main.py" "$1" 
